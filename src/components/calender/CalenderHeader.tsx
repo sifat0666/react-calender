@@ -13,7 +13,11 @@ const CalenderHeader = () => {
     setMonthIndex(monthIndex + 1);
   }
   function handleReset() {
-    setMonthIndex(dayjs().month());
+    setMonthIndex(
+      monthIndex === dayjs().month()
+        ? monthIndex + Math.random()
+        : dayjs().month()
+    );
   }
 
   return (
