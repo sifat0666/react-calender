@@ -18,18 +18,18 @@ function savedEventsReducer(
       throw new Error();
   }
 }
-function initEvents() {
+const initEvents = (): [] | any => {
   const storageEvents = localStorage.getItem("savedEvents");
   const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
   return parsedEvents;
-}
+};
 
 const ContextWrapper = ({ children }: { children: ReactNode }) => {
   const [monthIndex, setMonthIndex] = useState<number>(dayjs().month());
   const [smallCalendarMonth, setSmallCalendarMonth] = useState<any>(null);
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState<boolean>(false);
-  const [selectedEvent, setSelectedEvent] = useState() as any;
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   const [savedEvents, dispatchCalEvent] = useReducer(
     savedEventsReducer,

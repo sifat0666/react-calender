@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import React, { useContext, useState } from "react";
 import { GrFormClose } from "react-icons/gr";
 import {
@@ -15,8 +17,12 @@ import { IEvents } from "../../../types";
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 
 const EventModal = () => {
-  const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
-    useContext(GlobalContext);
+  const {
+    setShowEventModal,
+    daySelected,
+    dispatchCalEvent,
+    selectedEvent,
+  }: any = useContext(GlobalContext);
 
   const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
   const [description, setDescription] = useState(
